@@ -22,9 +22,17 @@ function show(req, res) {
 function store(req, res) {
     const { nome, descricao, data, local, capacidade } = req.body;
 
-    // Validação simples
-    if (!nome || !data) {
-        return res.status(400).json({ erro: "Nome e data são obrigatórios" });
+    // Validação melhorada
+    if (!nome || nome.trim() === "") {
+        return res.status(400).json({ erro: "Nome inválido. Deve conter pelo menos uma letra." });
+    }
+
+    if (!data) {
+        return res.status(400).json({ erro: "Data é obrigatória." });
+    }
+
+    if (capacidade !== undefined && (capacidade < 0)) {
+        return res.status(400).json({ erro: "Capacidade deve ser um número não-negativo." });
     }
 
     const novoEvento = EventoModel.criar({
