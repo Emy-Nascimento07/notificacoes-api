@@ -4,6 +4,9 @@ const app = express();
 // Middleware para ler JSON no body das requisições
 app.use(express.json());
 
+// Rota para favicon (evita erro 404)
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 // Importar rotas
 const eventoRoutes = require("./routes/eventoRoutes");
 
