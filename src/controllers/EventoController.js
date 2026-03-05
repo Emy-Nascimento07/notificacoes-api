@@ -23,6 +23,7 @@ function store(req, res) {
     const { nome, descricao, data, local, capacidade } = req.body;
 
     // Validação melhorada
+    // Nome.trim => remove espaços em branco no início e no final, garantindo que o nome não seja apenas espaços.
     if (!nome || nome.trim() === "") {
         return res.status(400).json({ erro: "Nome inválido. Deve conter pelo menos uma letra." });
     }
