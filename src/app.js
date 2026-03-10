@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 
+
 // Middleware para ler JSON no body das requisições
 app.use(express.json());
 
@@ -9,15 +10,15 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Importar rotas
 const eventoRoutes = require("./routes/eventoRoutes");
+const participanteRoutes = require("./routes/participanteRoutes");
+const inscricaoRoutes = require("./routes/inscricaoRoutes");
 
 // Usar rotas com prefixo
 app.use("/eventos", eventoRoutes);
-
-
-// Participantes:
-
-const participanteRoutes = require("./routes/participanteRoutes");
 app.use("/participantes", participanteRoutes);
+app.use("/inscricoes", inscricaoRoutes);
+
+// Rota raiz
 
 app.get("/", (req, res) => {
     res.json({
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
         rotas: {
             eventos: "/eventos",
             participantes: "/participantes",
+            inscricoes: '/inscricoes'
         },
     });
 });
