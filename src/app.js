@@ -13,12 +13,18 @@ const eventoRoutes = require("./routes/eventoRoutes");
 // Usar rotas com prefixo
 app.use("/eventos", eventoRoutes);
 
-// Rota raiz (informativa)
+
+// Participantes:
+
+const participanteRoutes = require("./routes/participanteRoutes");
+app.use("/participantes", participanteRoutes);
+
 app.get("/", (req, res) => {
     res.json({
         mensagem: "API de Notificações",
         rotas: {
-            eventos: "/eventos"
+            eventos: "/eventos",
+            participantes: "/participantes",
         },
     });
 });
