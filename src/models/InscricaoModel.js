@@ -14,11 +14,13 @@ function criar(eventoId, participanteId) {
     // Verificar se o participante existe
     const participante = ParticipanteModel.buscarPorId(participanteId);
     if (!participante) return { erro: "Participante não encontrado" };
+
     // Verificar se já está inscrito
     const jaInscrito = inscricoes.find(
         (i) => i.eventoId === eventoId && i.participanteId === participanteId,
     );
     if (jaInscrito) return { erro: "Participante já inscrito neste evento" };
+
     const novaInscricao = {
         id: proximoId,
         eventoId,
@@ -26,6 +28,7 @@ function criar(eventoId, participanteId) {
         dataInscricao: new Date().toISOString(),
         status: "confirmada",
     };
+
     proximoId++;
     inscricoes.push(novaInscricao);
     return novaInscricao;

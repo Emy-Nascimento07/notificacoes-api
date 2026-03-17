@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swagger");
 
 
 // Middleware para ler JSON no body das requisições
 app.use(express.json());
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Rota para favicon (evita erro 404)
 app.get('/favicon.ico', (req, res) => res.status(204).end());
