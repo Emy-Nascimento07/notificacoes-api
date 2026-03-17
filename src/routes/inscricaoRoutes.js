@@ -25,10 +25,10 @@ const InscricaoController = require("../controllers/InscricaoController");
  *           description: ID do participante
  *         dataInscricao:
  *           type: string
- *           description: Data da inscricao
+ *           description: Data da Inscrição
  *         status:
  *           type: string
- *           description: Status da inscricao
+ *           description: Status da Inscrição
  *       example:
  *         id: 1
  *         eventoId: 2
@@ -41,11 +41,11 @@ const InscricaoController = require("../controllers/InscricaoController");
  * @swagger
  * /inscricoes:
  *   get:
- *     summary: Listar todas as inscricoes
+ *     summary: Listar todas as inscrições
  *     tags: [Inscricoes]
  *     responses:
  *       200:
- *         description: Lista de inscricoes
+ *         description: Lista de inscrições
  *         content:
  *           application/json:
  *             schema:
@@ -59,7 +59,7 @@ router.get("/", InscricaoController.index);
  * @swagger
  * /inscricoes/evento/{eventoId}:
  *   get:
- *     summary: Listar inscricoes de um evento
+ *     summary: Listar inscrições de um evento
  *     tags: [Inscricoes]
  *     parameters:
  *       - in: path
@@ -70,7 +70,7 @@ router.get("/", InscricaoController.index);
  *         description: ID do evento
  *     responses:
  *       200:
- *         description: Lista de inscricoes do evento
+ *         description: Lista de inscrições do evento
  *         content:
  *           application/json:
  *             schema:
@@ -78,7 +78,7 @@ router.get("/", InscricaoController.index);
  *               items:
  *                 $ref: '#/components/schemas/Inscricao'
  *       404:
- *         description: Inscricoes nao encontradas
+ *         description: Inscrições nao encontradas
  */
 router.get("/evento/:eventoId", InscricaoController.listarPorEvento);
 
@@ -86,7 +86,7 @@ router.get("/evento/:eventoId", InscricaoController.listarPorEvento);
  * @swagger
  * /inscricoes:
  *   post:
- *     summary: Criar uma nova inscricao
+ *     summary: Criar uma nova inscrição
  *     tags: [Inscricoes]
  *     requestBody:
  *       required: true
@@ -113,7 +113,7 @@ router.get("/evento/:eventoId", InscricaoController.listarPorEvento);
  *               status: "confirmada"
  *     responses:
  *       201:
- *         description: Inscricao criada com sucesso
+ *         description: Inscrição criada com sucesso
  *       400:
  *         description: Dados invalidos
  */
@@ -123,7 +123,7 @@ router.post("/", InscricaoController.store);
  * @swagger
  * /inscricoes/{id}/cancelar:
  *   patch:
- *     summary: Cancelar uma inscricao
+ *     summary: Cancelar uma inscrição
  *     tags: [Inscricoes]
  *     parameters:
  *       - in: path
@@ -133,9 +133,9 @@ router.post("/", InscricaoController.store);
  *           type: integer
  *     responses:
  *       200:
- *         description: Inscricao cancelada
+ *         description: Inscrição cancelada
  *       404:
- *         description: Nao foi possivel cancelar a inscricao
+ *         description: Nao foi possivel cancelar a inscrição
  */
 router.patch("/:id/cancelar", InscricaoController.cancelar);
 
@@ -143,7 +143,7 @@ router.patch("/:id/cancelar", InscricaoController.cancelar);
  * @swagger
  * /inscricoes/{id}/detalhes:
  *   get:
- *     summary: Listar detalhes de uma inscricao
+ *     summary: Listar detalhes de uma inscrição
  *     tags: [Inscricoes]
  *     parameters:
  *       - in: path
@@ -151,16 +151,16 @@ router.patch("/:id/cancelar", InscricaoController.cancelar);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID da inscricao
+ *         description: ID da inscrição
  *     responses:
  *       200:
- *         description: Inscricao encontrada
+ *         description: Inscrição encontrada
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Inscricao'
  *       404:
- *         description: Inscricao nao encontrada
+ *         description: Inscrição nao encontrada
  */
 router.get("/:id/detalhes", InscricaoController.detalhes);
 
