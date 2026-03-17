@@ -66,7 +66,7 @@ router.get("/", ParticipanteController.index);
  *                       schema:
  *                           $ref: '#/components/schemas/Participante'
  *           404:
- * description: Participante não encontrado
+ *               description: Participante não encontrado
  */
 router.get("/:id", ParticipanteController.show);
 
