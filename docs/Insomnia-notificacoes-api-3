@@ -11,7 +11,7 @@ collection:
     meta:
       id: fld_1051e4064bca4c47a04191cdf0880445
       created: 1772716213222
-      modified: 1773157566363
+      modified: 1773752299985
       sortKey: -1772716213222
       description: ""
     children:
@@ -190,7 +190,7 @@ collection:
     meta:
       id: fld_482e647bc23f400dad0bddc715569e79
       created: 1773157560696
-      modified: 1773157567730
+      modified: 1773161373936
       sortKey: -1773157560696
       description: ""
     children:
@@ -330,7 +330,7 @@ collection:
     meta:
       id: fld_7012bf1773b24c8595360052b777518c
       created: 1773159093127
-      modified: 1773159093127
+      modified: 1773161375690
       sortKey: -1773159093127
       description: ""
     children:
@@ -476,6 +476,95 @@ collection:
           isPrivate: false
           description: ""
           sortKey: -1773159382496
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: REQUISIÇÕES - APÓS SWAGGER
+    meta:
+      id: fld_d4fcbdb151be414e8196ad657a0ffe13
+      created: 1773752318810
+      modified: 1773752318810
+      sortKey: -1773752318810
+      description: ""
+    children:
+      - url: http://localhost:3000/eventos
+        name: Buscar todos os eventos
+        meta:
+          id: req_8a6dfc51fea14f128506dcc801d93296
+          created: 1773752321488
+          modified: 1773752343853
+          isPrivate: false
+          description: ""
+          sortKey: -1773752343837
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/eventos
+        name: Criar novo evento
+        meta:
+          id: req_040fbc6d1c404843a514752003defe66
+          created: 1773752346677
+          modified: 1773752446319
+          isPrivate: false
+          description: ""
+          sortKey: -1773752343937
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            		"nome": "Aula extra - PBE2",
+            		"descricao": "Aula extra de Programação Back-End",
+            		"data": "2026-03-17",
+            		"local": "SENAI - Sala 10",
+            		"capacidade": 30
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api-docs
+        name: Buscar documentação
+        meta:
+          id: req_86caff8ce5ee412db2a9db47d1d0ec55
+          created: 1773752454288
+          modified: 1773752482996
+          isPrivate: false
+          description: ""
+          sortKey: -1773752344037
         method: GET
         headers:
           - name: User-Agent
